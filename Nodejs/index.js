@@ -12,3 +12,16 @@ server.get('/query-params', (req, res) => {
   const {name, age} = req.query;
   return res.json({result: `Seja bem vindo: ${name} de ${age}A`})
 })
+
+const products = []
+
+server.post('/products', (req, res) => {
+  const {name, price} = req.body;
+
+  products.push({name: name, price: price})
+  res.send({message: 'Success!'})
+})
+
+server.get('/products', (req, res) =>{
+  res.send({products: products})
+})
