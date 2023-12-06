@@ -25,3 +25,5 @@ server.post('/products', (req, res) => {
 server.get('/products', (req, res) =>{
   res.send({products: products})
 })
+
+//Rota utilizando o express
