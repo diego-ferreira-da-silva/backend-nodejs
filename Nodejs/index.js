@@ -13,19 +13,22 @@ server.get('/query-params', (req, res) => {
   return res.json({result: `Seja bem vindo: ${name} de ${age}A`})
 })
 
-const products = []
+let products = []
 
+/*POST => INSERT*/
 server.post('/products', (req, res) => {
-  const {name, price} = req.body;
+  const {id, name, price} = req.body;
 
-  products.push({name: name, price: price})
+  products.push({id: id, name: name, price: price})
   res.send({message: 'Success!'})
 })
 
+/*GET => SELECT(LIST)*/
 server.get('/products', (req, res) =>{
   res.send({ products: products });
 })
 
+/*PUT => UPDATE */
 server.put('/product', (req, res) => {
   const {name, price} = req.body
   const {oldName} = req.query
@@ -37,4 +40,14 @@ server.put('/product', (req, res) => {
 
   res.send({message: 'Success!'})
 
+})
+
+/*DELETE => DELETE */
+server.delete('/product/:id', (req, res) => {
+  const{id} = req.params
+
+  const newProducts = products.filter(item => item.id !== parseInt(id) )
+
+  products = newProducts;
+  res.send({product : products})
 })
