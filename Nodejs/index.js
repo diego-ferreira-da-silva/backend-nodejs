@@ -23,7 +23,18 @@ server.post('/products', (req, res) => {
 })
 
 server.get('/products', (req, res) =>{
-  res.send({products: products})
+  res.send({ products: products });
 })
 
-//Rota utilizando o express
+server.put('/product', (req, res) => {
+  const {name, price} = req.body
+  const {oldName} = req.query
+
+  const index = products.findIndex(item => item.name === oldName)
+
+  products[index].name = name;
+  products[index].price = price;
+
+  res.send({message: 'Success!'})
+
+})
