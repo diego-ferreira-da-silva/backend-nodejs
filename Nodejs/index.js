@@ -1,3 +1,4 @@
+const api = require('./api')
 const express = require('express')
 const server = express();
 
@@ -51,3 +52,20 @@ server.delete('/product/:id', (req, res) => {
   products = newProducts;
   res.send({product : products})
 })
+
+server.get('/pokemon', async (req, res) => {
+
+  try {
+    const {data}= await api.get('pokemon/1')
+    return res.send({name: data.name})
+
+  } catch (error) {
+    res.send({error: error})
+  }
+
+  return res.json({name: data.name})
+})
+
+/* Requisição asincrona */
+
+/*Awayt - Não prossiga enquatno não estivermos resposta pronta da API */
