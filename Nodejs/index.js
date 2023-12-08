@@ -83,3 +83,8 @@ server.post("/register-users", verifyUserAlready, (req, res) => {
   localStorage.setItem("users", JSON.stringify(allUsers));
   return res.json({ user });
 });
+
+server.get('/users', (req, res) => {
+  const users =JSON.parse(localStorage.getItem('users'))
+  return res.json(users)
+})
