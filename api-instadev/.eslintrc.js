@@ -26,5 +26,6 @@ module.exports = {
     camelcase: 'off',
     'no-unused-vars': ['error', { argsIgnorePattern: 'next' }],
     'max-len': ['error', { code: 80 }],
+    'linebreak-style': 'off',
   },
 };

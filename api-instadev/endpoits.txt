@@ -1,0 +1,55 @@
+sign-in(
+        username,
+        password
+        )
+
+sign-up(
+        user_name,
+        password,
+        confirm_password
+        )
+
+create-post(author_id,
+            image,
+            description
+)
+
+list-post(
+          author: {user_name, avatar},
+          number_likes,
+          imagem,
+          description
+          )
+
+delete-post(
+          id_post,
+
+)
+update-post(
+            post_id,
+            image,
+            description
+)
+      
+list-profile(
+            user_name,
+            avatar,
+            number_posts,
+            description,
+            list_posts:{
+              images
+            }
+)
+
+edit-profile(
+              avatar,
+              name,
+              user_name,
+              bio,
+              email,
+              gender
+)
+
+upload(
+      image
+)
