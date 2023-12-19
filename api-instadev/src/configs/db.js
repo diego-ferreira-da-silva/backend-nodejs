@@ -6,7 +6,7 @@ module.exports = {
   username: 'root',
   password: 'mysql',
   database: 'instadev',
-  port: 3306,
+  DB_PORT: 3306,
   define: {
     timestamps: true,
     underscored: true,
